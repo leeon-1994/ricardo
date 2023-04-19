@@ -43,3 +43,12 @@ git merge new_site
 
 # 删除分支
 git branch -d new_site
+
+# 给远程仓库起别名
+git remote add origin https://.git
+
+# 推送代码
+git push -u origin 分支
+
+# 克隆远程仓库代码
+git clone 远程仓库
