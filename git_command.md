@@ -59,6 +59,9 @@ git pull origin master == git fetch origin master && git merge origin/master
 # 合并版本记录
 git rebase -i HEAD~3
 
+# 记录图形显示
+git log --graph --pretty=format:"%h %s"
+
 # 将分支合并到主干
 git checkout dev && git rebase master && git checkout master && git merge dev
 
