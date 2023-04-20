@@ -52,3 +52,26 @@ git push -u origin 分支
 
 # 克隆远程仓库代码
 git clone 远程仓库
+
+# 拉取远程仓库
+git pull origin master == git fetch origin master && git merge origin/master
+
+# 合并版本记录
+git rebase -i HEAD~3
+
+# 将分支合并到主干
+git checkout dev && git rebase master && git checkout master && git merge dev
+
+# 本地未提交到远程仓库版本做修改后使用rebase不会产生分叉(fetch从远程仓库拉取到的是版本文件origin/dev,使用merge origin/dev会产生分叉)
+git fetch origin dev && git rebase origin/dev
+
+# master和dev同时做了修改，使用rebase会产生冲突
+git checkout dev && git rebase master # 产生冲突->解决冲突 
+git add . && git rebase --continue
+
+# 快速解决冲突
+1. 安装beyond compare
+2. 在git中配置
+    >> git config --local merge.tool bc3
+    >> git config --local mergetool.path'compare安装目录'
+    >> git config --local mergetool.keepBackup false
