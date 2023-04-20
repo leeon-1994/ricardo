@@ -78,3 +78,7 @@ git add . && git rebase --continue
     >> git config --local merge.tool bc3
     >> git config --local mergetool.path'compare安装目录'
     >> git config --local mergetool.keepBackup false
+
+# 添加版本
+git tag -a v1 -m "v1.0"
+git push origin --tags
