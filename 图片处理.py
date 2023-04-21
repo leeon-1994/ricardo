@@ -33,3 +33,28 @@ for left in range(0, width, p_width):
         img.paste(cutImgCopy, (left, top))
 
 img.save('img/p.png')
+
+# 调整图像大小
+img = Image.open('img/paste.png')
+width, height = img.size
+resizeImg = img.resize((int(width / 2), int(height / 2)))
+resizeImg.save('img/resize.png')
+
+# 翻转图像
+img.rotate(90).save('img/rotate.png')
+img.rotate(6, expand=True).save('img/6.png')  # expand 放大图片尺寸以适应翻转后的新图像
+# 水平翻转和垂直翻转
+img.transpose(Image.FLIP_LEFT_RIGHT).save('img/horizontal_flip.png')
+img.transpose(Image.FLIP_TOP_BOTTOM).save('img/vertical_flip.png')
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+# 更改像素
+img = Image.new('RGBA', (200,200))
+for x in range(200):
+    for y in range(100):
+        img.putpixel((x, y), (210,210,210))
+
+for x in range(200):
+    for y in range(100, 200):
+        img.putpixel((x,y), ImageColor.getcolor('red', 'RGBA'))
+
+img.save('img/pixel.png')

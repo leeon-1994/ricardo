@@ -82,3 +82,6 @@ git add . && git rebase --continue
 # 添加版本
 git tag -a v1 -m "v1.0"
 git push origin --tags
+
+# 创建并切换到分支
+git checkout -b site
